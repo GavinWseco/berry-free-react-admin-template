@@ -1,22 +1,22 @@
 // assets
-import { IconDashboard } from '@tabler/icons-react';
+import { IconDashboard, IconTrack, IconTruck } from '@tabler/icons-react';
 
 // constant
-const icons = { IconDashboard };
+const icons = { IconTruck };
 
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
 const dashboard = {
-  id: 'dashboard',
-  title: 'Dashboard',
+  id: 'Orders',
+  title: 'Orders',
   type: 'group',
   children: [
     {
-      id: 'default',
-      title: 'Dashboard',
+      id: 'Orders',
+      title: 'Orders',
       type: 'item',
-      url: '/dashboard/default',
-      icon: icons.IconDashboard,
+      url: '/Orders',
+      icon: icons.IconTruck,
       breadcrumbs: false
     }
   ]
