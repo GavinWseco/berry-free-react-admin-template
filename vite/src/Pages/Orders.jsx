@@ -1,76 +1,23 @@
-import { Box, OutlinedInput, InputAdornment, Typography, Grid, IconButton, Modal } from '@mui/material';
-import { IconSearch } from '@tabler/icons-react';
-import Info from '@mui/icons-material/Info'; // Importing Info icon
-import React from 'react';
-import { useTheme } from '@mui/material/styles';
+import OrderDetails from "ui-component/Orders/OrderDetails";
+import OrderSearch from "ui-component/Orders/OrderSearch";
+import { useState } from "react"
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '53%',
-    transform: 'translate(-50%, -50%)',
-
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
+    ;
+import Loader from "ui-component/Loader";
 
 const Orders = () => {
-    const [value, setValue] = React.useState('');
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-    const theme = useTheme();
-
+    const [state, setState] = useState({
+        order: {},
+        loading: false,
+        error: false,
+    });
     return (
-        <Box display="flex" justifyContent="center" alignItems="center" height="35vh">
-            <Grid container direction="column" alignItems="center" justifyContent="center">
-                <Grid item style={{ marginBottom: "3vh" }}>
-                    <OutlinedInput
-                        id="input-search-header"
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                        placeholder="Search parts orders #"
-                        startAdornment={
-                            <InputAdornment position="start">
-                                <IconSearch stroke={1.5} size="16px" />
-                            </InputAdornment>
-                        }
-                        aria-describedby="search-helper-text"
-                        inputProps={{ 'aria-label': 'weight', sx: { bgcolor: 'transparent', pl: 0.5 } }}
-                        sx={{ width: { md: 300, lg: 600 }, ml: 2, px: 2 }}
-                    />
-                </Grid>
-                <Grid item style={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography style={{ fontSize: 18 }} variant="subtitle2">Example of parts order number</Typography>
-                    <IconButton
-                        sx={{
-                            marginLeft: '5px',
-                            padding: '5px',
-                            '& .MuiSvgIcon-root': {
-                                fontSize: 18,
-                                color: theme.palette.primary.main,
-                            }
-                        }}
-                        aria-label="info"
-                        onClick={handleOpen} // Open modal on click
-                    >
-                        <Info />
-                    </IconButton>
-                </Grid>
-            </Grid>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={style}>
-                    <img src="src\assets\images\salesOrderNumber.png" style={{ height: '80vh', width: '35vw' }} alt="" />
-                </Box>
-            </Modal>
-        </Box>
+        <>
+            {state.order.id == null ? < OrderSearch setState={setState} state={state} /> : null}
+            {state.order.id != null ? <OrderDetails state={state} /> : null}
+            {state.loading ? <Loader /> : null}
+        </>
+
     );
 };
 

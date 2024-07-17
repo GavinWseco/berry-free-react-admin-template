@@ -1,0 +1,28 @@
+.order-tracker {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    list-style: none;
+}
+
+.stage {
+    flex-grow: 1;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #eee;
+    margin-right: 5px;
+}
+
+.stage.active {
+    background-color: #4caf50;
+    color: white;
+}
+
+.stage:last-child {
+    margin-right: 0;
+}
+
+button {
+    margin-top: 20px;
+}
