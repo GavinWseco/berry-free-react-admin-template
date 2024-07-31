@@ -54,7 +54,8 @@ const MobileSearch = ({ value, setValue, popupState }) => {
   const theme = useTheme();
 
   return (
-    <OutlinedInput
+    <>
+      {/* <OutlinedInput
       id="input-search-header"
       value={value}
       onChange={(e) => setValue(e.target.value)}
@@ -83,7 +84,7 @@ const MobileSearch = ({ value, setValue, popupState }) => {
                 }
               }}
               {...bindToggle(popupState)}
-            >
+              >
               <IconX stroke={1.5} size="20px" />
             </Avatar>
           </Box>
@@ -92,7 +93,8 @@ const MobileSearch = ({ value, setValue, popupState }) => {
       aria-describedby="search-helper-text"
       inputProps={{ 'aria-label': 'weight', sx: { bgcolor: 'transparent', pl: 0.5 } }}
       sx={{ width: '100%', ml: 0.5, px: 2, bgcolor: 'background.paper' }}
-    />
+      /> */}
+    </>
   );
 };
 
@@ -109,7 +111,7 @@ const SearchSection = () => {
 
   return (
     <>
-      <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+      {/* <Box sx={{ display: { xs: 'block', md: 'none' } }}>
         <PopupState variant="popper" popupId="demo-popup-popper">
           {(popupState) => (
             <>
@@ -165,7 +167,7 @@ const SearchSection = () => {
           inputProps={{ 'aria-label': 'weight', sx: { bgcolor: 'transparent', pl: 0.5 } }}
           sx={{ width: { md: 250, lg: 434 }, ml: 2, px: 2 }}
         />
-      </Box>
+      </Box> */}
     </>
   );
 };

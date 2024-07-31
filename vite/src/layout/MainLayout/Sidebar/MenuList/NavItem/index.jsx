@@ -100,7 +100,7 @@ const NavItem = ({ item, level }) => {
           )
         }
       />
-      {item.chip && (
+      {/* {item.chip && (
         <Chip
           color={item.chip.color}
           variant={item.chip.variant}
@@ -108,7 +108,7 @@ const NavItem = ({ item, level }) => {
           label={item.chip.label}
           avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
         />
-      )}
+      )} */}
     </ListItemButton>
   );
 };

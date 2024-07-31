@@ -16,7 +16,7 @@ const Logo = () => {
 
   return (
     <>
-      <img src='\src\assets\images\Logosm.png' style={{ height: 45, width: 45, borderRadius: 8 }} />
+      <img src='\src\assets\images\Logo.png' style={{ height: 45, borderRadius: 3 }} />
     </>
   );
 };

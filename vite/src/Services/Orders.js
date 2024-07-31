@@ -8,9 +8,9 @@ export function useOrders() {
     const dispatch = useDispatch();
 
 
-    const getOrders = async (id, accountNumber) => {
+    const getOrders = async (id) => {
         try {
-            const response = await api.get(`/Order?id=${id}&accountNumber=${accountNumber}`);
+            const response = await api.get(`/Order?id=${id}`);
             dispatch(addSuccessAlert('Orders fetched successfully'));
             return response.data;
         } catch (error) {

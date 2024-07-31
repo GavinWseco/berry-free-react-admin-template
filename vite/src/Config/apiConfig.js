@@ -1,4 +1,4 @@
-const CustomerPortal = "https://app-customerportal-dev-001.azurewebsites.net/api/";
+const CustomerPortal = "https://localhost:5001/api/";
 
 export default CustomerPortal;
 

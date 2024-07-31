@@ -88,7 +88,7 @@ const NotificationSection = () => {
 
   return (
     <>
-      <Box
+      {/* <Box
         sx={{
           ml: 2,
           mr: 3,
@@ -209,7 +209,7 @@ const NotificationSection = () => {
             </Paper>
           </Transitions>
         )}
-      </Popper>
+      </Popper> */}
     </>
   );
 };

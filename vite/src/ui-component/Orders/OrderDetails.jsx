@@ -5,12 +5,11 @@ import Header from './Header';
 import ProgressBar from './ProgressBar';
 import Shipments from './Shipments';
 function OrderDetails({ state }) {
-
     return (
         <Box display="flex" justifyContent="center" alignItems="center" >
             <Grid container >
                 <Grid item xs={12} justifyContent="center">
-                    <ProgressBar />
+                    <ProgressBar state={state.order} />
                 </Grid>
                 <Grid item xs={9} justifyContent="center">
                     <Header state={state.order} />

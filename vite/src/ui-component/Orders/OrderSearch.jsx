@@ -1,4 +1,4 @@
-import { Box, OutlinedInput, InputAdornment, Typography, Grid, IconButton, Modal } from '@mui/material';
+import { Box, OutlinedInput, InputAdornment, Typography, Grid, IconButton, Modal, Button } from '@mui/material';
 import { IconSearch } from '@tabler/icons-react';
 import Info from '@mui/icons-material/Info'; // Importing Info icon
 import React from 'react';
@@ -20,17 +20,15 @@ const style = {
 
 const OrderSearch = ({ setState, state }) => {
     const [open, setOpen] = React.useState(false);
-    const [salesOrderNumber, setSalesOrderNumber] = React.useState('');
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const theme = useTheme();
     const { getOrders } = useOrders();
 
     const HandleSearchOrders = async (value) => {
-        setSalesOrderNumber(value);
-        setState(prevState => ({ ...prevState, loading: true }));
+        setState(prevState => ({ ...prevState, loading: true, salesOrderId: value }));
         try {
-            var order = await getOrders(value, '9245500');
+            var order = await getOrders(value);
             setState(prevState => ({ ...prevState, order: order.data, loading: false }));
         }
         catch (error) {
@@ -44,7 +42,7 @@ const OrderSearch = ({ setState, state }) => {
                 <Grid item style={{ marginBottom: "3vh" }}>
                     <OutlinedInput
                         id="input-search-header"
-                        value={salesOrderNumber}
+                        value={state.salesOrderId}
                         onChange={(e) => HandleSearchOrders(e.target.value)}
                         placeholder="Search parts orders #"
                         startAdornment={
@@ -69,7 +67,7 @@ const OrderSearch = ({ setState, state }) => {
                             }
                         }}
                         aria-label="info"
-                        onClick={handleOpen} // Open modal on click
+                        onClick={handleOpen}
                     >
                         <Info />
                     </IconButton>
