@@ -5,8 +5,7 @@ import * as signalR from "@microsoft/signalr";
 import Test from "ui-component/Test";
 import Loader from "ui-component/Loader";
 
-
-const Orders = () => {
+const Order = () => {
     const [state, setState] = useState({
         order: {},
         loading: false,
@@ -16,7 +15,7 @@ const Orders = () => {
 
     useEffect(() => {
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("https://localhost:5001/hubs/order")
+            .withUrl("https://app-customerportal-dev-001.azurewebsites.net/hubs/order")
             .configureLogging(signalR.LogLevel.Information)
             .build();
         connection.start()
@@ -40,17 +39,13 @@ const Orders = () => {
             connection.stop();
         };
     }, [state.salesOrderId]);
-
-
     return (
         <>
             {state.order.id == null ? < OrderSearch setState={setState} state={state} /> : null}
             {state.order.id != null ? <OrderDetails state={state} /> : null}
             {state.loading ? <Loader /> : null}
-
         </>
-
     );
 };
 
-export default Orders;
+export default Order;

@@ -3,7 +3,7 @@ import { lazy } from 'react';
 // project imports
 import MainLayout from 'layout/MainLayout';
 
-import Orders from 'Pages/Orders';
+import Order from 'Pages/Order';
 
 
 
@@ -15,14 +15,14 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <Orders />
+      element: <Order />
     },
     {
       path: 'Orders',
       children: [
         {
           path: '',
-          element: <Orders />
+          element: <Order />
         }
       ]
     },

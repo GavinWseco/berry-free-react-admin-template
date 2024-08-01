@@ -7,12 +7,12 @@ const icons = { IconTruck, IconBulldozer, IconDashboard, IconFileDollar, IconUse
 // ==============================|| DASHBOARD MENU ITEMS ||============================== //
 
 const dashboard = {
-  id: 'Orders',
+  id: 'dashboard',
   title: 'Services',
   type: 'group',
   children: [
     {
-      id: 'Orders',
+      id: 'dashboard',
       title: 'Parts Orders',
       type: 'item',
       url: '/Orders',
@@ -20,42 +20,42 @@ const dashboard = {
       breadcrumbs: false
     },
     {
-      id: 'Orders',
+      id: 'dashboard',
       title: 'Rentals',
       type: 'item',
-      url: '/Orders',
+      url: '/Rental',
       icon: icons.IconBackhoe,
       breadcrumbs: false
     },
     {
-      id: 'Orders',
+      id: 'dashboard',
       title: 'Service',
       type: 'item',
-      url: '/Orders',
+      url: '/Service',
       icon: icons.IconTool,
       breadcrumbs: false
     },
     {
-      id: 'Orders',
+      id: 'dashboard',
       title: 'My Invoice',
       type: 'item',
-      url: '/Orders',
+      url: '/MyInvoice',
       icon: icons.IconFileDollar,
       breadcrumbs: false
     },
     {
-      id: 'Orders',
+      id: 'dashboard',
       title: 'My Fleet',
       type: 'item',
-      url: '/Orders',
+      url: '/MyFleet',
       icon: icons.IconBulldozer,
       breadcrumbs: false
     },
     {
-      id: 'Orders',
+      id: 'dashboard',
       title: 'My Users',
       type: 'item',
-      url: '/Orders',
+      url: '/MyUsers',
       icon: icons.IconUsers,
       breadcrumbs: false
     }
