@@ -12,7 +12,7 @@ const dashboard = {
   type: 'group',
   children: [
     {
-      id: 'dashboard',
+      id: 'parts-orders',
       title: 'Parts Orders',
       type: 'item',
       url: '/Orders',
@@ -20,7 +20,7 @@ const dashboard = {
       breadcrumbs: false
     },
     {
-      id: 'dashboard',
+      id: 'rentals',
       title: 'Rentals',
       type: 'item',
       url: '/Rental',
@@ -28,7 +28,7 @@ const dashboard = {
       breadcrumbs: false
     },
     {
-      id: 'dashboard',
+      id: 'service',
       title: 'Service',
       type: 'item',
       url: '/Service',
@@ -36,7 +36,7 @@ const dashboard = {
       breadcrumbs: false
     },
     {
-      id: 'dashboard',
+      id: 'my-invoice',
       title: 'My Invoice',
       type: 'item',
       url: '/MyInvoice',
@@ -44,7 +44,7 @@ const dashboard = {
       breadcrumbs: false
     },
     {
-      id: 'dashboard',
+      id: 'my-fleet',
       title: 'My Fleet',
       type: 'item',
       url: '/MyFleet',
@@ -52,7 +52,7 @@ const dashboard = {
       breadcrumbs: false
     },
     {
-      id: 'dashboard',
+      id: 'my-users',
       title: 'My Users',
       type: 'item',
       url: '/MyUsers',

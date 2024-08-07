@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Service() {
+function NotFound() {
     return (
         <div>
-            to be implemented
+            Not Found
         </div>
     )
 }
 
-export default Service
+export default NotFound

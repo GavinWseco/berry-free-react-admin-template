@@ -12,7 +12,7 @@ import { Grid } from '@mui/material';
 export default function Shipments({ state }) {
     const test = state.map((item) => {
         return (
-            <Accordion>
+            <Accordion key={item.id}>
                 <AccordionSummary
                     expandIcon={<ArrowDownwardIcon />}
                     aria-controls="panel1-content"

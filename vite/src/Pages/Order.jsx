@@ -1,9 +1,8 @@
-import OrderDetails from "ui-component/Orders/OrderDetails";
-import OrderSearch from "ui-component/Orders/OrderSearch";
-import { useEffect, useState } from "react";
-import * as signalR from "@microsoft/signalr";
-import Test from "ui-component/Test";
-import Loader from "ui-component/Loader";
+import React, { useState, useEffect } from 'react';
+import OrderSearch from 'ui-component/Orders/OrderSearch';
+import Loader from 'ui-component/Loader';
+import { useNavigate } from 'react-router-dom';
+
 
 const Order = () => {
     const [state, setState] = useState({
@@ -12,37 +11,15 @@ const Order = () => {
         error: false,
         salesOrderId: ""
     });
-
+    const navigate = useNavigate();
     useEffect(() => {
-        const connection = new signalR.HubConnectionBuilder()
-            .withUrl("https://app-customerportal-dev-001.azurewebsites.net/hubs/order")
-            .configureLogging(signalR.LogLevel.Information)
-            .build();
-        connection.start()
-            .then(() => {
-                console.log("Connected to OrderHub");
-                connection.invoke("JoinOrderGroup", state.salesOrderId)
-                    .then(() => {
-                        console.log(`Joined group for order ID: ${state.salesOrderId}`);
-                    })
-                    .catch(err => console.error(err.toString()));
-            })
-            .catch(err => console.error(err.toString()));
-        connection.on("UpdateOrder", (data) => {
-            console.log("Order updated:", data);
-            setState(prevState => ({ ...prevState, order: data }));
-        });
-        connection.onclose(err => {
-            console.error("Connection closed:", err);
-        });
-        return () => {
-            connection.stop();
-        };
-    }, [state.salesOrderId]);
+        if (state.order && state.order.id)
+            navigate(`/Orders/${state.salesOrderId}`, { state: state.order });
+    }, [state.order, navigate]);
+
     return (
         <>
-            {state.order.id == null ? < OrderSearch setState={setState} state={state} /> : null}
-            {state.order.id != null ? <OrderDetails state={state} /> : null}
+            <OrderSearch setState={setState} state={state} />
             {state.loading ? <Loader /> : null}
         </>
     );
